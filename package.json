@@ -12,6 +12,9 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "mysql": "^2.13.0"
+    "mongodb": "^2.2.27",
+    "mysql": "^2.13.0",
+    "node-static": "^0.7.9",
+    "pug": "^2.0.0-rc.1"
   }
 }
