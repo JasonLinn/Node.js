@@ -4,22 +4,32 @@ var mongoData = require('./3_monListData');
 var express = require("express");
 var app = express();
 
+
 //set view engine
 app.set("view engine", "pug")
 //set view directory
-app.set("views", __dirname)
 
-app.get('/person', function (req, res) {
+
+app.set("views", __dirname)
+app.get('/', function (req, res) {
     mongoData.personList(function (recordset) {
         //console.log(recordset);
         res.render('personPageTp', { personList: recordset });
     });
 });
 
-app.get('/student', function (req, res) {
+app.get('/person', function (req, res) {
     mongoData.personList(function (recordset) {
         //console.log(recordset);
-        res.render('personTp', { personList: recordset });
+        res.render('person', { personList: recordset });
+    });
+});
+
+app.get('/pugs', function (req, res) {
+    app.use(express.static('../5_myApp/public/'));
+    mongoData.personList(function (recordset) {
+        //console.log(recordset);
+        res.render('pugs', { personList: recordset });
     });
 });
 

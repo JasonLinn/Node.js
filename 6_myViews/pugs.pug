@@ -37,20 +37,22 @@ html(lang='en')
           a.navbar-brand(href='#') Project name
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
-            li.active
+            li
               a(href='/') Home
             li
               a(href='/person') Persons
-            li
+            li.active
               a(href='/pugs') pugs
         // /.nav-collapse
     // Begin page content
     .container
       .page-header
         block page-header
+            p Person List
       p.lead
+
         block content
-        
+            img(src="/images/pug.jpg", alt="images/pug.jpg")     
     footer.footer
       .container
         p.text-muted 2015-Created by circleuniv

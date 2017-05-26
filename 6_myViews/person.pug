@@ -37,9 +37,9 @@ html(lang='en')
           a.navbar-brand(href='#') Project name
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
-            li.active
-              a(href='/') Home
             li
+              a(href='/') Home
+            li.active
               a(href='/person') Persons
             li
               a(href='/pugs') pugs
@@ -48,9 +48,14 @@ html(lang='en')
     .container
       .page-header
         block page-header
+            p Person List
       p.lead
+
         block content
-        
+            ul
+                for item in personList
+                    li= item.id + ":"
+                       span=item.firstName +' '+item.lastName        
     footer.footer
       .container
         p.text-muted 2015-Created by circleuniv
