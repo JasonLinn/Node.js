@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome",
-            "url": "http://localhost:8080",
+            "url": "http://localhost:3000/restful/todo",
             "webRoot": "${workspaceRoot}"
         },
         {
@@ -16,7 +16,7 @@
             "type": "node",
             "request": "launch",
             "name": "啟動程式",
-            "program": "${workspaceRoot}\\4_EventEmitter\\4_extendEE.js"
+            "program": "${workspaceRoot}\\routes\\todo.js"
         }
     ]
 }

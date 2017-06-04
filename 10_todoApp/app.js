@@ -1,17 +1,24 @@
 var express = require('express');
+var bodyParser = require( 'body-parser' );
+var todoRouter= require('./routes/todo.js');
 var app = express();
-var dataset = require('./recordset.js'); //要有資料來做頁面呈現, 所以直接匯入!
 
+//var dataset=require('./recordset.js');  //資料集...方便測試View流程使用
 //set view engine
-app.set("view engine", "pug")
+app.set("view engine","pug")
 //set view directory
-app.set("views", __dirname + "/views")　// 樣版所在位置
+app.set("views",__dirname+"/views")
 
-app.get('/todo', function (req, res) {
-    　　　res.render('restfulTP', { itemlist: dataset });  // render 到 restful樣版
-});
+// configure app to use bodyParser()
+// this will let us get the data from Request
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
 
-app.use('/restful', express.static(__dirname + '/public')); //一些必要的javascript, css皆放入此!!
-app.listen(3000, function () {
-    console.log('Ready...for 3000');
+
+// Apply this router on (/restful)
+app.use('/restful', todoRouter);
+app.use('/restful',express.static(__dirname+'/public'));
+
+app.listen(3000,function(){
+	console.log('Ready...for 3000');
 });
