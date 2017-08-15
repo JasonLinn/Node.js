@@ -9,7 +9,7 @@ module.exports.QueryGet=function(data,callback){
 		    if(data.message)
 			  collection.find({'message' : {$regex : '.*'+ data.message+ '.*'}}).toArray(function(err,items){
 			    if(err) throw err;
-			  	  callback(items);			 	
+			  	  callback(items);
 		      });
 		    else
 		      collection.find({}).toArray(function(err,items){

@@ -17,6 +17,7 @@
     "express-session": "^1.15.3",
     "jade": "^1.11.0",
     "mongodb": "^2.2.27",
+    "mongoose": "^4.11.7",
     "mysql": "^2.13.0",
     "node-static": "^0.7.9",
     "pug": "^2.0.0-rc.1",
